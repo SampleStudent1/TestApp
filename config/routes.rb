@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #default Rails page won't show on Heroku
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
