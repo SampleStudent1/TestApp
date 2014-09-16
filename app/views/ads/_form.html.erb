@@ -1,4 +1,5 @@
 <%= form_for([@magazine, @ad]) do |f| %>
+  <%= hidden_field_tag "ad[ad_formats][]", "" %>
   <% if @ad.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
@@ -19,6 +20,19 @@
     <%= f.label :copy %><br>
     <%= f.text_field :copy %>
   </div>
+ 
+  <strong>Ad Formats:</strong>
+    <p>
+    <% AdFormat.all.each do |format| %>
+      <div>
+        <%= check_box_tag "ad[ad_formats][]", format.name, @ad.has_format?(format.name) %>
+        <%= format.name %>
+      </div>
+      <% end %>
+    </p>
+
+    
+  
   <div class="actions">
     <%= f.submit %>
   </div>

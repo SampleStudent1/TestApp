@@ -11,12 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909140303) do
+ActiveRecord::Schema.define(version: 20140915174340) do
+
+  create_table "ad_formats", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ads", force: true do |t|
     t.integer  "magazine_id"
     t.string   "vendor"
     t.string   "copy"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ad_formats"
+  end
+
+  create_table "articles", force: true do |t|
+    t.string   "name"
+    t.integer  "section_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +43,13 @@ ActiveRecord::Schema.define(version: 20140909140303) do
 
   create_table "sample_tables", force: true do |t|
     t.string "sample"
+  end
+
+  create_table "sections", force: true do |t|
+    t.string   "title"
+    t.integer  "magazine_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "test_pages", force: true do |t|

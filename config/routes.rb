@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   
   
 
+  resources :ad_formats
+
+  resources :articles
+
+  resources :sections
+
   resources :magazines do
     resources :ads
   end  
